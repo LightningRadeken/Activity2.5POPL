@@ -3,6 +3,24 @@
 from functools import wraps
 import time
 
+#Decorator 3
+def validation_decorator(func):
+    @wraps(func)
+    def wrapper(x, y):
+        if isinstance(x, int) and isinstance(y,int):
+            return func(x,y)
+        else:
+            print("Invalid inputs. Please provide integers.")
+            return None
+    return wrapper
+
+#@validation_decorator
+#def add_nums(x,y):
+#    return x + y
+
+#print(add_num(3,4))
+#print(add _num(5, "a"))
+
 
 def timing_decorator(func):
     @wraps(func)
